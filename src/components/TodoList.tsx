@@ -14,6 +14,8 @@ import {
   ChevronDown,
   ChevronUp,
   Edit3,
+  Check,
+  X,
 } from "lucide-react";
 
 interface ExpandedTodoState {
@@ -127,14 +129,13 @@ export const TodoList: React.FC = () => {
 
   return (
     <Card className="border-0 shadow-none bg-transparent">
-      {/* Keep existing CardHeader */}
       <CardHeader>
         <CardTitle className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-blue-100 rounded-lg">
               <ListTodo className="w-6 h-6 text-blue-600" />
             </div>
-            <span className="text-xl">Tasks & To-Dos</span>
+            <span className="text-xl">Todo</span>
           </div>
           <div className="flex items-center gap-3">
             <span className="text-sm font-medium px-3 py-1 bg-blue-50 rounded-full">
@@ -292,33 +293,37 @@ export const TodoList: React.FC = () => {
                       {new Date(todo.createdAt).toLocaleDateString()}
                     </span>
                     {editTodoId === todo.id ? (
-                      <>
+                      <div className="flex flex-col sm:flex-row gap-0 sm:gap-2">
                         <Button
-                          variant="outline"
+                          variant="ghost"
                           size="sm"
                           onClick={() => saveEdit(todo.id)}
-                          className="rounded-xl"
+                          className="rounded-xl w-full sm:w-auto"
                         >
-                          Save
+                          <Check className="text-green-500" />
                         </Button>
                         <Button
-                          variant="outline"
+                          variant="ghost"
                           size="sm"
-                          className="rounded-xl"
+                          className="rounded-xl w-full sm:w-auto"
                           onClick={cancelEdit}
                         >
-                          Cancel
+                          <X className=" text-red-500" />
                         </Button>
-                      </>
+                      </div>
                     ) : (
                       <Button
                         variant="ghost"
                         size="sm"
-                        onClick={() => editTodo(todo.id)}
+                        onClick={(e) => {
+                          editTodo(todo.id);
+                          e.stopPropagation();
+                        }}
                       >
                         <Edit3 className="w-4 h-4 text-blue-500" />
                       </Button>
                     )}
+
                     <Button
                       variant="ghost"
                       size="sm"

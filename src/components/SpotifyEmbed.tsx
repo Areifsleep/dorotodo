@@ -11,23 +11,35 @@ interface Quote {
 }
 
 const DEFAULT_SPOTIFY_EMBED =
-  "https://open.spotify.com/embed/album/72sG7hFVmyFlxg9e7PfV0K?utm_source=generator";
+  "https://open.spotify.com/embed/playlist/3CPZ8k5MEux8iIbsO8OD7Q?utm_source=generator";
 const QUOTES: Quote[] = [
   {
-    text: "The only way to do great work is to love what you do.",
-    author: "Steve Jobs",
+    text: "If that's what you long for, just try to beg for it yourself, and the wounds you made would be the proof that you've tried.",
+    author: "Tsukuyomi / Sing the Moon",
   },
   {
-    text: "Success is not final, failure is not fatal: it is the courage to continue that counts.",
-    author: "Winston Churchill",
+    text: "Because you will always regret, no matter how you live. So aplaud the present that you've gone so far to.",
+    author: "Tsukuyomi / Sing the Moon",
   },
   {
-    text: "Don't watch the clock; do what it does. Keep going.",
-    author: "Sam Levenson",
+    text: "We who move forward even if it's an undesirable future, Are still aiming for the best.",
+    author: "Orangestar / Surges",
   },
   {
-    text: "The future belongs to those who believe in the beauty of their dreams.",
-    author: "Eleanor Roosevelt",
+    text: "In times when you don't know anything anymore, know that warmer temperatures are out there.",
+    author: "MIMI / Tsuki Michisirube",
+  },
+  {
+    text: "\"It's hard for me\", It's alright if you can't say that. Even on cue you see, we're still living.",
+    author: "MIMI / Tightly",
+  },
+  {
+    text: "Say, Is the destination to where you were headed, dark? If it's just a shadow from a bright, bright light, Then",
+    author: "HeavenzP / Even If You Assume That is Your Happiness",
+  },
+  {
+    text: "You have desperately gulped down this breath already, so don't give up on the next act of exhaling",
+    author: "HarryP / Eve of the Sun",
   },
 ];
 
@@ -96,7 +108,6 @@ const SpotifyEmbed: React.FC = () => {
         )}
 
         <div className="flex flex-col items-center">
-          {/* Fixed height container for iframe */}
           <div className="w-full h-[152px] mb-6 relative">
             {isLoading && (
               <div className="absolute inset-0 bg-gray-100 animate-pulse rounded-lg" />
@@ -115,7 +126,7 @@ const SpotifyEmbed: React.FC = () => {
           <div className="flex w-full flex-col sm:flex-row items-center gap-3 mb-6">
             <input
               type="text"
-              placeholder="Enter Spotify album link"
+              placeholder="Enter Spotify album/playlist link"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               className="w-full px-4 py-2 bg-white/60 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all duration-300"
@@ -124,14 +135,13 @@ const SpotifyEmbed: React.FC = () => {
               onClick={handleEmbedChange}
               className="w-full sm:w-auto bg-purple-600 hover:bg-purple-700 text-white transition-colors duration-300"
             >
-              Play Album
+              Play
             </Button>
           </div>
 
-          {/* Fixed height container for quote */}
           <div className="p-6 bg-pink2-300 backdrop-blur-sm rounded-xl w-full">
             <div className="flex items-start gap-3">
-              <div className="p-2 bg-pink2-300 rounded-lg flex-shrink-0">
+              <div className="p-0 bg-pink2-300 rounded-lg flex-shrink-0">
                 <Quote className="w-4 h-4 text-purple-600" />
               </div>
               <div>

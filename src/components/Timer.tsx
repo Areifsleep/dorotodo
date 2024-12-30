@@ -274,9 +274,9 @@ export const Timer: React.FC = () => {
               <Button
                 variant="outline"
                 onClick={resetTimer}
-                className="rounded-xl w-32 h-12 transition-all duration-300 hover:scale-105"
+                className="rounded-xl w-32 h-12 font-medium text-lg transition-all duration-300 hover:scale-105"
               >
-                <RotateCcw className="w-4 h-4 mr-2" />
+                <RotateCcw className="w-4 h-4 mr-0" />
                 Reset
               </Button>
             </div>
